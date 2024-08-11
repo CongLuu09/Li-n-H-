@@ -1,8 +1,8 @@
-// lib/main.dart
+
 import 'package:flutter/material.dart';
 import 'package:lienhe/models/contact.dart';
 import 'package:lienhe/data/contacts.dart';
-import 'package:url_launcher/url_launcher.dart'; // Đảm bảo bạn đã thêm gói này vào pubspec.yaml
+import 'package:url_launcher/url_launcher.dart'; 
 
 void main() {
   runApp(MyApp());
@@ -145,7 +145,7 @@ class AddContactScreen extends StatelessWidget {
   }
 }
 
-// Màn hình chi tiết liên hệ
+
 class ContactDetailScreen extends StatelessWidget {
   final Contact contact;
 
@@ -196,7 +196,7 @@ class ContactDetailScreen extends StatelessWidget {
     );
   }
 
-  // Hàm để gọi điện
+ 
   void _makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(
       scheme: 'tel',
@@ -205,22 +205,22 @@ class ContactDetailScreen extends StatelessWidget {
     if (await canLaunchUrl(launchUri)) {
       await launchUrl(launchUri);
     } else {
-      // Xử lý trường hợp không thể gọi điện
+    
       print('Could not launch $launchUri');
     }
   }
 
-  // Hàm để nhắn tin
+
   void _sendSMS(String phoneNumber) async {
     final Uri smsUri = Uri(
         scheme: 'sms',
         path: phoneNumber,
-        queryParameters: {'body': 'Xin chào, Tin nhắn này được gửi tới bạn và chúc bạn một ngày tốt lành'} // Tin nhắn mặc định
+        queryParameters: {'body': 'Xin chào, Tin nhắn này được gửi tới bạn và chúc bạn một ngày tốt lành'} 
     );
     if (await canLaunchUrl(smsUri)) {
       await launchUrl(smsUri);
     } else {
-      // Xử lý trường hợp không thể nhắn tin
+    
       print('Could not launch $smsUri');
     }
   }
